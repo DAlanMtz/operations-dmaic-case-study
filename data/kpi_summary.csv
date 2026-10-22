@@ -1,5 +1,4 @@
 KPI,Baseline,Target_Or_Result,Unit,Improvement_Pct
-Average Tool Loading Time,10.38,5.57,minutes,46.3
-Forgotten Tool Incidents per Week,3.5,0.5,incidents,85.7
-Process Defect Rate,23.3,3.3,percent,85.8
-Process Sigma Level,2.2,3.3,sigma,50.0
+Timed Tool Loading (Controlled Comparison),10.38,5.57,minutes,46.3
+Forgotten Tool Incidents per Week (Estimated),3.5,0.5,incidents,85.7
+Estimated Defect Rate per Departure,23.3,3.3,percent,85.8

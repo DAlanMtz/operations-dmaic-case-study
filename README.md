@@ -10,7 +10,7 @@ Lean Six Sigma DMAIC project for a two-person field-service business with recurr
 
 **Problem statement:** the company had no standardized tool management or pre-job preparation process. Tools were stored without organization, job preparation relied entirely on memory, and forgotten tools caused frequent field delays - 3-4 incidents per week, each costing 30-60 minutes of delay.
 
-**Goal statement:** reduce wasted field time, materials cost, and job execution errors by standardizing pre-job planning and tool loading - without new software, headcount, or capital investment, since the business operates as a lean, two-person, tablet-only operation.
+**Goal statement:** reduce wasted field time, materials cost, and job execution errors by standardizing pre-job planning and tool loading, without new software, headcount, or capital investment. The public goal is qualitative; it does not set a numeric target or deadline.
 
 **Scope:** tool storage and loading process, client estimate intake protocol, worker scheduling/synchronized start times, and materials/supply management by job type.
 
@@ -18,43 +18,44 @@ Lean Six Sigma DMAIC project for a two-person field-service business with recurr
 
 Baselines were established through direct observation, an owner interview, and a review of vehicle/storage contents, using attribute-based measurement (checklist present/absent, loading time, tool correctness, gate-code availability). Key baseline figures:
 
-- Average tool loading time: **10.4 minutes** per departure
+- Timed tool loading: **10:23 before** and **5:34 after** in the reported controlled comparison. The source report separately describes normal morning loading as 20 to 30 minutes, so these are different baseline conditions.
 - Forgotten-tool incidents: **3-4 per week**, each causing 30-60 minutes of field delay
-- Estimated process defect rate: **23.3%** (~2.2σ)
+- Estimated forgotten-tool incident rate: **23.3% of departures**, assuming about 15 departures per week and one defect opportunity per departure. The source does not establish whether multiple incidents could occur on one departure.
 - One confirmed **$121.11 wasted trip** from a phone-only remote estimate
 - **20+ duplicate chainsaw chains** ($340+) discovered in disorganized storage
 
 ## Analyze
 
-Fishbone (Ishikawa) diagramming, 5 Whys, and Pareto-style prioritization isolated the vital-few root causes driving wasted field time. All identified root causes were **process-design gaps** - not employee effort, demand variability, or equipment reliability - which is what made a low-cost, low-tech intervention the right fix rather than a staffing or capital investment.
+Fishbone (Ishikawa) diagramming, 5 Whys, and a cost ranking were used to organize the observed failure points and identify likely process causes. The summary data does not independently rule out staffing, demand, or equipment factors, so these categories reflect the project team’s analysis rather than tested exclusions.
 
-The Pareto analysis below converts each root cause to an estimated annual dollar impact (hour-based waste converted at a consistent $18/hr labor rate) to rank them by what's actually worth fixing first - and the ranking is not the same as which problem is most *visible* day to day.
+The chart ranks rough annual cost estimates. Several categories may overlap, and the estimates rely on owner reports, projected annual frequencies, and an $18/hour labor rate. They should not be added together as savings. The project source gives two unpaid-loading estimates: $3,375 from 187.5 hours at $18/hour, and $1,125 in a separate benefits table. The CSV uses the formula-based amount; the conflict remains unresolved.
 
 ## Improve
 
 All solutions were constrained to work within a low-tech, two-person operation. Alternatives considered and rejected: field-service scheduling software (cost/workflow overhead not aligned with the operation's needs), a full inventory management system (overkill for a two-person team), and adding a vehicle or staff member (would scale the existing waste rather than fix it).
 
-**What was implemented (5S):**
+**What was implemented (5S):** The source report describes all five practices.
 - **Sort** - separated tools from clutter; this step alone surfaced the duplicate tool inventory.
 - **Set in Order** - color-coded tool labeling by job type, labeled storage zones, laminated visual reference guides.
+- **Shine** - a post-job cleaning and tool-return routine.
 - **Standardize** - two vehicle binders with job-specific checklists, an estimate checklist, and a gate-code sheet.
 - **Sustain** - in-person training for both workers on the full system.
 - A standardized estimate protocol requiring photo/video confirmation for remote jobs, directly targeting the wasted-trip root cause.
 
 ## Control
 
-Controls are embedded at the point of work - inside the vehicles, at the storage area, and during a weekly review - so sustaining the new process requires no extra administrative step that could lapse under time pressure. See `control-plan-summary.png` for the full breakdown of control mechanisms by monitoring frequency.
+The report lists eight controls with methods and frequencies, including a weekly incident log. It also includes a blank tracking form, but no completed log was found in the archived project materials. The control plan does not name an owner, set trigger limits, or describe a response when a check fails, so it does not show whether the controls operated or kept results on target.
 
 ## Tools
 
-Python (pandas, matplotlib) in Jupyter. The analysis and visuals use a small, sanitized, aggregated results dataset in `data/`, not raw business records.
+Python (pandas, matplotlib) in Jupyter. The notebook rebuilds charts from sanitized, aggregated summary values in `data/`. It cannot recalculate the reported results because the observation logs are not included.
 
 ## Results
 
-- Loading time dropped about 46%, from 10.4 minutes to 5.6 minutes per departure.
-- Forgotten-tool incidents dropped about 86%, from 3.5 per week to 0.5 per week. The estimated defect rate moved from 23.3% to 3.3%.
-- The largest cost driver was unpaid early-arrival labor, estimated around $3,400 per year, not forgotten tools themselves.
-- Total implementation cost: **~$40 in supplies**. ROI positive after a single prevented wasted trip.
+- In the reported timed comparison, loading took 10:23 before and 5:34 after, a 46% reduction. The source describes a controlled timed test, not a repeated sample, and separately reports typical loading as 20 to 30 minutes.
+- The reported forgotten-tool frequency moved from an estimated 3 to 4 incidents per week to 0 to 1 (averages of 3.5 and 0.5). The 23.3% and 3.3% rates assume about 15 departures each week and treat incidents as distinct departure-level defects; the report includes a blank weekly tracking form, but no completed log or departure-level denominator was found in the archived project materials.
+- The source estimates unpaid early-arrival labor at about 188 hours per year. Its report gives inconsistent dollar figures for this item ($3,375 in the calculation and $1,125 in the benefits table), so the dollar impact is unresolved.
+- Total implementation cost: **about $40 in supplies**. The source estimates a confirmed wasted trip at $121.11, but does not document a post-change avoided trip; positive realized ROI is therefore not established.
 
 ## Visuals
 
@@ -64,12 +65,16 @@ Generated by the notebook and saved to `images/`:
 |---|---|
 | `process-timeline.png` | The ~4-month DMAIC engagement timeline |
 | `root-cause-fishbone.png` | Ishikawa diagram of root causes by category |
-| `issue-frequency-pareto.png` | Root causes ranked by estimated annual cost impact |
-| `before-after-kpi-comparison.png` | Baseline vs. result for 4 key process metrics |
-| `control-plan-summary.png` | Control mechanisms grouped by monitoring frequency |
+| `issue-frequency-pareto.png` | Ranked estimates by category; amounts may overlap |
+| `before-after-kpi-comparison.png` | Three reported before/after measures; source logs are unavailable here |
+| `control-plan-summary.png` | Listed mechanisms with undocumented owner and failure response |
 
-![Pareto chart](images/issue-frequency-pareto.png)
-![Before/after KPI comparison](images/before-after-kpi-comparison.png)
+![Reported before and after measures](images/before-after-kpi-comparison.png)
+
+![Listed annual cost estimates by category](images/issue-frequency-pareto.png)
+
+![Controls listed in the case study](images/control-plan-summary.png)
+
 
 ## How to run
 
@@ -82,13 +87,14 @@ Generated by the notebook and saved to `images/`:
 - `README.md` - this case study
 - `operations_dmaic_case_study.ipynb` - full analysis (Define to Measure to Analyze to Improve to Control, with all visuals)
 - `data/kpi_summary.csv` - sanitized before/after KPI values
-- `data/annual_cost_impact.csv` - sanitized root-cause cost estimates
+- `data/annual_cost_impact.csv` - sanitized annual cost estimates; categories may overlap
 - `images/` - the 5 exported chart PNGs referenced above
 - `NOTES.md` - anonymization log: what was changed, generalized, or removed, and why
 
 ## Limitations
 
 - This is an anonymized case study, not a fictional one. It is based on a real small-business engagement with identifying details removed.
-- Measurement was manually logged with stopwatch timing, self-report, and receipts. Some observer and reporting variance is unavoidable.
+- Measurement was manually logged with stopwatch timing, self-report, and receipts. A blank weekly tracking form appears in the source report, but no completed underlying logs, sample sizes, or post-change observation window were found in the archived project materials. The before/after changes therefore cannot be independently recomputed here.
+- The reported sigma levels (about 2.2 and 3.3) are numerically consistent with a 1.5-sigma shift applied to the estimated departure-level defect rates, but the source does not state the convention or establish that each incident maps to a separate defect opportunity. Treat them as source-reported estimates, not validated process capability results.
 - The $18/hr labor rate used to convert hour-based waste into dollars comes from the original engagement and was not independently re-verified here.
 - Results reflect one post-implementation measurement window. Sustained full-year results were not independently re-verified for this write-up.

@@ -1,6 +1,6 @@
 Root_Cause_Category,Estimated_Annual_Cost_USD,Basis
-Unpaid early-arrival loading labor,3384,"188 hrs/yr x $18/hr labor rate (45 min/job x ~250 jobs/yr)"
-Wasted remote-estimate trips,2178,"Midpoint of $1452-$2904/yr range (confirmed $121.11/trip x 12-24 trips/yr)"
-Forgotten-tool field delays,2700,"Midpoint of 100-200 hrs/yr field delay x $18/hr labor rate"
-Uncontrolled tool loading time,1404,"78 hrs/yr excess loading time x $18/hr labor rate"
-Duplicate tool/material purchases,340,"20+ duplicate chainsaw chains confirmed at $17 each"
+Unpaid early-arrival loading labor,3375,"45 min/job x ~250 jobs/yr = 187.5 hrs/yr x $18/hr = $3,375; separate source benefits table lists $1,125, unreconciled"
+Wasted remote-estimate trips,2178,Midpoint of $1452-$2904/yr range (confirmed $121.11/trip x 12-24 trips/yr)
+Forgotten-tool field delays,2700,Midpoint of 100-200 hrs/yr field delay x $18/hr labor rate
+Uncontrolled tool loading time,1404,78 hrs/yr excess loading time x $18/hr labor rate
+Duplicate tool/material purchases,340,20+ duplicate chainsaw chains confirmed at $17 each
